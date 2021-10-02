@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=0.88">
+        <link rel="stylesheet" href="./css/style.css">
+        <title>Just Stream it !</title>
+    </head>
+    <body>
+        <header>
+            <div id="navLogo">
+                <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo Just stream it!">
+            </div>
+            <nav>
+                <ul class="nav__items">
+                    <li><a href="#">Accueil</a></li>
+                    <li class="dropdown-trigger">
+                        Catégories
+                        <i class="fas fa-caret-down"></i>
+                        <a href="#" id="dropCategoryTrigger" for='#categoriesList'></a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="categoriesList" class="dropdown-list">
+                <ul>
+                    <!-- categories list generated with js -->
+                </ul>
+            </div>
+        </header>
+        <template id="modalTemplate">
+            <div class="modal" id="modalBox">
+                <figure>
+                    <img src="" alt="">
+                    <figcaption>
+                        <h3></h3>
+                        <ul></ul>
+                    </figcaption>
+                </figure>
+                <a href="#" id="closeModal" class="btn-close"><i class="far fa-times-circle"></i></a>
+            </div>
+        </template>
+        <section>
+            <!-- most popular movies -->
+            <figure class="most_popular">
+                <div class="most_popular--image">
+                    <img src="">
+                </div>
+                <figcaption>
+                    <h2 class="most_popular--title"></h2>
+                    <button id="modalTrigger" data-action="#bestRatingMovieModal"><i class="fas fa-caret-right"></i> Lecture</button>
+                </figcaption>
+            </div>
+        </section>
+        <template id="categorySection">
+            <section class="category">
+                <!-- category template -->
+                <h2></h2>
+                <div class="scrollable">
+                    <div class="container">
+                    </div>
+                </div>
+                <template id="templateFigure">
+                    <figure>
+                        <img src="" alt="">
+                        <figcaption>
+                            <h3></h3>
+                        </figcaption>
+                        <a href="#" id="modalTrigger"></a>
+                    </figure>
+                </template>
+            </section>
+        </template>
+        <script src="https://kit.fontawesome.com/56e9dc830d.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./js/api.js"></script>
+        <script type="text/javascript" src="./js/index.js"></script>
+    </body>
+</html>

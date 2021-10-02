@@ -1,0 +1,39 @@
+.most_popular {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    overflow-x: hidden;
+    #{&}--image {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    & figcaption {
+        position: absolute;
+        width: 100%;
+        bottom: 3px;
+        padding: 16px;
+        background-color: #191919a9;
+        color: white;
+
+        & h2 {
+            width: 70%;
+            margin: 10px 0;
+        }
+        & button {
+            padding: 3px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 16px;
+            background-color: #e50914;
+            color: white;
+            box-shadow: 0.2px 0.2px 0.8px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+    }
+    
+
+}

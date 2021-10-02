@@ -1,3 +1,10 @@
-body{
-    color: white;
-}
+@import "./layout/body";
+@import "./layout/header";
+@import "./layout/section";
+
+@import "./elements/big_figure";
+@import "./elements/modal";
+@import "./elements/btn_close";
+@import "./elements/dropdown";
+@import "./elements/most_popular";
+@import "./elements/category";
