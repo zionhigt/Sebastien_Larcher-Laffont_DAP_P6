@@ -1,0 +1,7 @@
+@mixin btnRed {
+    color: $light-grey;
+    background-color: $red;
+     &:active{
+        background-color: darken($red, 20%);
+     }
+}

@@ -1,10 +1,17 @@
+@import "./responsive/media-query";
+
+@import "./theme/var_colors";
+
 @import "./layout/body";
 @import "./layout/header";
 @import "./layout/section";
 
+@import "./elements/loader";
+@import "./elements/btn_red";
 @import "./elements/big_figure";
 @import "./elements/modal";
 @import "./elements/btn_close";
 @import "./elements/dropdown";
 @import "./elements/most_popular";
 @import "./elements/category";
+@import "./elements/search_bar";

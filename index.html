@@ -3,11 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=0.88">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
         <title>Just Stream it !</title>
     </head>
     <body>
+        <div class="loader active"><!-- loader active -->
+            <div id="loadLogo" class="loader__logo">
+                <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo Just stream it!">
+            </div>
+            <div class="loader__circle--spinner">
+                <i class="fas fa-spinner"></i>
+            </div>
+        </div>
         <header>
             <div id="navLogo">
                 <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo Just stream it!">
@@ -23,6 +31,15 @@
                 </ul>
             </nav>
             <div id="categoriesList" class="dropdown-list">
+                <div class="search">
+                    <form id="searchForm" action="#">
+                        <label for="searchBar">Rechercher dans catégories</label><br/>
+                        <div class="barItems">
+                            <input id="searchBar" type="text" placeholder="EX: Animation"/>
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
                 <ul>
                     <!-- categories list generated with js -->
                 </ul>
@@ -47,7 +64,9 @@
                     <img src="">
                 </div>
                 <figcaption>
+                    
                     <h2 class="most_popular--title"></h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita minus modi aliquam voluptate amet aperiam, totam beatae cumque neque fugit! Quas quidem ex velit doloribus. Eum officiis distinctio eveniet assumenda.</p>
                     <button id="modalTrigger" data-action="#bestRatingMovieModal"><i class="fas fa-caret-right"></i> Lecture</button>
                 </figcaption>
             </div>
@@ -72,7 +91,7 @@
             </section>
         </template>
         <script src="https://kit.fontawesome.com/56e9dc830d.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="./js/api.js"></script>
+        <script type="text/javascript" src="./js/dependencies.js"></script>
         <script type="text/javascript" src="./js/index.js"></script>
     </body>
 </html>

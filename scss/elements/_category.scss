@@ -22,7 +22,7 @@
         text-align: center;
         width: $figure-width;
         height: 100%;
-        border: 2px solid #191919;
+        border: 2px solid $dark-grey;
         margin: 0;
         & a {
             position: absolute;
@@ -38,9 +38,10 @@
             margin: auto;
             height: 100%;
             object-fit: cover;
+            border-radius: 5px;
         }
         & figcaption {
-            width: 100%;
+            max-width: 98%;
             padding: 0 8px;
             & h3 {
                 overflow-x: hidden;

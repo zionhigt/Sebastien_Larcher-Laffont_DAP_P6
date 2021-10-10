@@ -1,6 +1,7 @@
 @mixin bigFigure($figcaption_bg_color) {
     width: 100%;
     margin: 0;
+    margin-top: 150px;
     position: relative;
     z-index: 2;
     overflow-x: hidden;

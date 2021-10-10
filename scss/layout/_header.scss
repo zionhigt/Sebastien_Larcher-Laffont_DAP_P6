@@ -9,6 +9,7 @@ header {
     & nav {
         width: 100%;
         & .nav__items {
+            padding-left: 10%;
             height: 100%;
             display: flex;
             flex-flow: row nowrap;
@@ -18,8 +19,7 @@ header {
             margin: 0;
             & li {
                 margin-bottom: 16px;
-                min-width: 110px;
-
+                min-width: 25%;
                 & a {
                     color: white;
                     text-decoration: none;
@@ -31,19 +31,24 @@ header {
         max-width: 25%;
         height: 100%;
         min-width: 90px;
-        background-color: #e50914;
+        // background-color: $red;
+        border-radius: 4px;
+        // border: 1px solid white;
         & img {
             max-width: 210px;
             min-width: 90px;
             width: 100%;
             object-fit: cover;
+            filter: invert(100%);
         }
     }
 }
 
-@media all and (min-width: 899px) {
-   header nav .nav__items {
+@media #{$media-m} {
+   header {
+       & nav .nav__items {
         justify-content: flex-end;
         
     }
+   }
 }
