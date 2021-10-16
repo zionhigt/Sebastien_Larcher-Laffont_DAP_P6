@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <title>Just Stream it !</title>
     </head>
     <body>
@@ -16,6 +17,10 @@
                 <i class="fas fa-spinner"></i>
             </div>
         </div>
+        <div class="escalator">
+            <i class="fas fa-caret-up"></i>
+            <a href="#"></a>
+        </div>
         <header>
             <div id="navLogo">
                 <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo Just stream it!">
@@ -26,7 +31,7 @@
                     <li class="dropdown-trigger">
                         Catégories
                         <i class="fas fa-caret-down"></i>
-                        <a href="#" id="dropCategoryTrigger" for='#categoriesList'></a>
+                        <a href="#" id="dropCategoryTrigger"></a>
                     </li>
                 </ul>
             </nav>
@@ -47,13 +52,16 @@
         </header>
         <template id="modalTemplate">
             <div class="modal" id="modalBox">
-                <figure>
+                <div class="body">
                     <img src="" alt="">
-                    <figcaption>
+                    <div class="caption">
                         <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="infos">
                         <ul></ul>
-                    </figcaption>
-                </figure>
+                    </div>
+                </div>
                 <a href="#" id="closeModal" class="btn-close"><i class="far fa-times-circle"></i></a>
             </div>
         </template>
@@ -66,9 +74,12 @@
                 <figcaption>
                     
                     <h2 class="most_popular--title"></h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita minus modi aliquam voluptate amet aperiam, totam beatae cumque neque fugit! Quas quidem ex velit doloribus. Eum officiis distinctio eveniet assumenda.</p>
-                    <button id="modalTrigger" data-action="#bestRatingMovieModal"><i class="fas fa-caret-right"></i> Lecture</button>
+                    <p class="most_popular--description"></p>
+                    <button class="modalTrigger" data-action="#bestRatingMovieModal"><i class="fas fa-caret-right"></i> Lecture</button>
                 </figcaption>
+            </figure>
+            <div class="film-loader">
+                <i class="fas fa-spinner"></i>
             </div>
         </section>
         <template id="categorySection">
@@ -84,14 +95,17 @@
                         <img src="" alt="">
                         <figcaption>
                             <h3></h3>
+                            <a class="modalTrigger" href="#"></a>
+                            <div class="film-loader">
+                                <i class="fas fa-spinner"></i>
+                            </div>
                         </figcaption>
-                        <a href="#" id="modalTrigger"></a>
                     </figure>
                 </template>
             </section>
         </template>
         <script src="https://kit.fontawesome.com/56e9dc830d.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="./js/dependencies.js"></script>
-        <script type="text/javascript" src="./js/index.js"></script>
+        <script src="./js/dependencies.js"></script>
+        <script src="./js/index.js"></script>
     </body>
 </html>

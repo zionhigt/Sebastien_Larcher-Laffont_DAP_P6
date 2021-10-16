@@ -24,15 +24,7 @@
         height: 100%;
         border: 2px solid $dark-grey;
         margin: 0;
-        & a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: block;
-            top: 0;
-            left: 0;
-        }
-
+        
         & img {
             width: auto;
             margin: auto;
@@ -43,6 +35,29 @@
         & figcaption {
             max-width: 98%;
             padding: 0 8px;
+            & a, & .film-loader{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: block;
+                top: 0;
+                z-index: 500;
+                left: 0;
+            }
+            & .film-loader {
+                background: rgba($dark-grey, 0.4);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                z-index: 0;
+                opacity: 0;
+                &.active {
+                    z-index: 500;
+                    opacity: 1;
+                    @include spinner;
+                }
+            }
             & h3 {
                 overflow-x: hidden;
                 white-space: nowrap;

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>Just Stream it !</title>
+</head>
+
+<body class="modal-up">
+    <div class="loader" style="display: none;">
+        <!-- loader active -->
+        <div id="loadLogo" class="loader__logo move">
+            <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo Just stream it!">
+        </div>
+        <div class="loader__circle--spinner hide">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+    <div class="escalator">
+        <i class="fas fa-caret-up"></i>
+        <a href="#"></a>
+    </div>
+    <header>
+        <div id="navLogo">
+            <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="Logo Just stream it!">
+        </div>
+        <nav>
+            <ul class="nav__items">
+                <li><a href="#">Accueil</a></li>
+                <li class="dropdown-trigger">
+                    Catégories
+                    <i class="fas fa-caret-down"></i>
+                    <a href="#" id="dropCategoryTrigger"></a>
+                </li>
+            </ul>
+        </nav>
+        <div id="categoriesList" class="dropdown-list">
+            <div class="search">
+                <form id="searchForm" action="#">
+                    <label for="searchBar">Rechercher dans catégories</label><br>
+                    <div class="barItems">
+                        <input id="searchBar" type="text" placeholder="EX: Animation">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <ul>
+                <!-- categories list generated with js -->
+                <li><a class="eye" href="#sectionTendances">Tendances<i class="fas fa-eye"></i></a></li>
+                <li><a class="eye" href="#sectionAction">Action<i class="fas fa-eye"></i></a></li>
+                <li><a class="eye" href="#sectionAdventure">Adventure<i class="fas fa-eye"></i></a></li>
+                <li><a class="eye" href="#sectionAnimation">Animation<i class="fas fa-eye"></i></a></li>
+            </ul>
+        </div>
+    </header>
+    <template id="modalTemplate">
+        <div class="modal" id="modalBox">
+            <div class="body">
+                <img src="" alt="">
+                <div class="caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="infos">
+                    <ul></ul>
+                </div>
+            </div>
+            <a href="#" id="closeModal" class="btn-close"><i class="far fa-times-circle"></i></a>
+        </div>
+    </template>
+    <section>
+        <!-- most popular movies -->
+        <figure class="most_popular">
+            <div class="most_popular--image">
+                <img
+                    src="https://m.media-amazon.com/images/M/MV5BZDMwODgwOGItNTJjNS00NDk2LTlkYzEtYzRjOTU5YTBlZGY5XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_UY268_CR9,0,182,268_AL_.jpg">
+            </div>
+            <figcaption>
+
+                <h2 class="most_popular--title">Notuku Potu</h2>
+                <p class="most_popular--description">Notuku Potu is a crime story laced with elements of horror and
+                    thrill. The story is about a man who, after the death of a woman, is pulled into a world of mystery
+                    and conspiracy.</p>
+                <button class="modalTrigger" data-action="#modalMovie9008642"
+                    id="modalTriggerBigFiguremodalMovie9008642"><i class="fas fa-caret-right"></i> Lecture</button>
+            </figcaption>
+
+        </figure>
+    </section>
+    <template id="categorySection">
+        <section class="category">
+            <!-- category template -->
+            <h2></h2>
+            <div class="scrollable">
+                <div class="container">
+                </div>
+            </div>
+            <template id="templateFigure">
+                <figure>
+                    <img src="" alt="">
+                    <figcaption>
+                        <h3></h3>
+                        <a class="modalTrigger" href="#"></a>
+                    </figcaption>
+                </figure>
+            </template>
+        </section>
+    </template>
+    <!-- <script src="https://kit.fontawesome.com/56e9dc830d.js" crossorigin="anonymous"></script> -->
+    <script src="./js/api.js"></script>
+    <script src="./js/components/escalator.js"></script>
+    <script src="./js/components/dropdown.js"></script>
+    <script src="./js/components/flag.js"></script>
+    <script src="./js/components/btn_close.js"></script>
+    <script src="./js/components/modal.js"></script>
+    <script src="./js/components/btn_pop.js"></script>
+    <script src="./js/components/section.js"></script>
+    <script src="./js/dependencies.js"></script>
+    <script src="./js/index.js"></script>
+
+    <section class="category" id="sectionTendances">
+        <!-- category template -->
+        <h2>Tendances</h2>
+        <div class="scrollable">
+            <div class="container">
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOWVmOWRmMWMtMDc2OC00NGM2LTllOTAtMmY5NjVhM2YzYjVlXkEyXkFqcGdeQXVyOTc2MTgwNjY@._V1_UY268_CR3,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Suvarna Sundari</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie7822474"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BNDEyYTA5OWEtYjNiYS00MGZlLThjYzEtMTc1Zjk2NDRmZmYxXkEyXkFqcGdeQXVyNzIwNTQyMw@@._V1_UY268_CR1,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Hopeful Notes</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie1508669"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BNjZhYWVhNjktNDRmNS00NGUyLThjZTgtYmU4NmQzYzIyZTk4XkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_UY268_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Vaarthakal Ithuvare</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie8571428"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BZGNiNjVhMTUtYTY0MC00MjQ4LTlhNjAtMmY3ODljMjc5YmJhXkEyXkFqcGdeQXVyMzQwNTU0OTQ@._V1_UY268_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Love in Kilnerry</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie6735740"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTZjZjM3NTQtOTFmOS00ZGI3LWI2MGQtMGE3MWNlZTE2OWM3XkEyXkFqcGdeQXVyMTExNzA5NzE4._V1_UY268_CR9,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Isha</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie11880904"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BNjFjNDQyYzYtZjI2NC00NmMwLTg1NjgtNTMxMWJjYTYxZjQ3XkEyXkFqcGdeQXVyMTA5MzgzNDUz._V1_UY268_CR1,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Lejos de Casa pelicula Venezolana</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie11207902"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Le ali della libertà</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie111161"></a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+    </section>
+    <section class="category" id="sectionAction">
+        <!-- category template -->
+        <h2>Action</h2>
+        <div class="scrollable">
+            <div class="container">
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOWVmOWRmMWMtMDc2OC00NGM2LTllOTAtMmY5NjVhM2YzYjVlXkEyXkFqcGdeQXVyOTc2MTgwNjY@._V1_UY268_CR3,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Suvarna Sundari</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie7822474"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMWFhZDhkYzMtYjM3NC00OTAxLThhNTEtNmM3OGFjODE0OWU3XkEyXkFqcGdeQXVyMTE5NjAxMDQx._V1_UY268_CR73,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Ek</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie12492650"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOTk4NGM0NmUtOTc2Yi00NTcxLWE3NGItYzEwODZjNzlhZjE2XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Ramayana: The Legend of Prince Rama</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie259534"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Il cavaliere oscuro</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie468569"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Il Signore degli Anelli - Il ritorno del re</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie167260"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOTg1MDNhMDEtMmY5MS00NGQ1LTkxMDctMmE2ZmE5NTA5NmNkXkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_UY268_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Kireedam</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie237376"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Il Signore degli Anelli - La compagnia dell'Anello</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie120737"></a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+    </section>
+    <section class="category" id="sectionAdventure">
+        <!-- category template -->
+        <h2>Adventure</h2>
+        <div class="scrollable">
+            <div class="container">
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOTUwMmI1MWEtYzRkNy00NjBkLTllM2YtZmNkNmVjODI1M2Q2XkEyXkFqcGdeQXVyMzA2ODY0NA@@._V1_UY268_CR88,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Moussaka &amp; Chips</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie451130"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOTk4NGM0NmUtOTc2Yi00NTcxLWE3NGItYzEwODZjNzlhZjE2XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Ramayana: The Legend of Prince Rama</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie259534"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BY2FiZDViZmEtNzY2Zi00ZjJiLTgwMDctMzdmYzJlMWU2NDJjXkEyXkFqcGdeQXVyNzAyMzY2NDk@._V1_UY268_CR4,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Ko to tamo peva</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie76276"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Il Signore degli Anelli - Il ritorno del re</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie167260"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWJkNmNlMTItY2U3Mi00YTYwLWE5OGItMGZhYzIyZWViZDgwXkEyXkFqcGdeQXVyMTEwNDgwMjgx._V1_UY268_CR9,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Breakout</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie11351704"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BN2Q5OWFmNWYtMDRmMi00YmIyLThiNDYtMDkwOTEyN2ZmNzY0XkEyXkFqcGdeQXVyNjA3OTI5MjA@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Dipu Number 2</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie1935109"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Il Signore degli Anelli - La compagnia dell'Anello</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie120737"></a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+    </section>
+    <section class="category" id="sectionAnimation">
+        <!-- category template -->
+        <h2>Animation</h2>
+        <div class="scrollable">
+            <div class="container">
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOTk4NGM0NmUtOTc2Yi00NTcxLWE3NGItYzEwODZjNzlhZjE2XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Ramayana: The Legend of Prince Rama</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie259534"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BZTYyZWUyM2QtMjcxZS00NTQ1LThjMDYtODkwMzQzZjI2OTAzXkEyXkFqcGdeQXVyNzIwODE3NTc@._V1_UY268_CR7,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Leera the Soulmate</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie6545212"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BYzIyMWRkMTktZmYyYy00YzZkLWFlOWEtOGU2MmEyNjVkZDk3XkEyXkFqcGdeQXVyNzEyMDQ1MDA@._V1_UY268_CR3,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Precure Miracle Universe Movie</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie10037700"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjM5NzgyNTctZDFiOS00NjY5LTliNDctMWRjOTdjZDk4MmUwXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Mushi-Shi Zoku Shou: Suzu no Shizuku</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie5575408"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjU1NGVkYzQtNGRhYS00YWE4LWE2MGItZjhjN2EyZDYzN2M3XkEyXkFqcGdeQXVyODk1NzMxOTE@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Ejen Ali the Movie</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie9020536"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BOWU5N2U2ZWQtMGYzYy00MmRiLTk2MjYtNDcxNGZjOWVkYzJlXkEyXkFqcGdeQXVyMDAyMTY3Nw@@._V1_UY268_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>Joe Finds Grace</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie137204"></a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        alt="">
+                    <figcaption>
+                        <h3>La città incantata</h3>
+                        <a class="modalTrigger" href="#" data-action="#modalMovie245429"></a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+    </section>
+    <div class="modal up" id="modalMovie6735740">
+        <div class="body">
+            <img src="https://m.media-amazon.com/images/M/MV5BZGNiNjVhMTUtYTY0MC00MjQ4LTlhNjAtMmY3ODljMjc5YmJhXkEyXkFqcGdeQXVyMzQwNTU0OTQ@._V1_UY268_CR0,0,182,268_AL_.jpg"
+                alt="">
+            <div class="caption">
+                <h3>Love in Kilnerry</h3>
+                <p><span>description: </span>The elderly resident of a small remote town panic after the EPA announces
+                    that government mandated changes to their chemical plant could create a bi-product that would
+                    dramatically increase their sexual libido. The sheriff struggles to maintain order and decency as
+                    mayhem ensues.</p>
+            </div>
+            <div class="infos">
+                <ul>
+                    <li><span>Directeurs: </span>Daniel Keith, Snorri Sturluson</li>
+                    <li><span>Acteurs: </span>Bari Hyman, Daniel Keith, Debargo Sanyal, Franklin Kavaler, James Patrick
+                        Nelson, Jeremy Fernandez, Kathy Searle, Lawrence R. Leritz, Leon Morgan, Nathan Wallace, Roger
+                        Hendricks Simon, Scott Watson, Sheila Stasack, Sybil Lines, Tony Triano</li>
+                    <li><span>imdb: </span>9.4</li>
+                    <li><span>Classement: </span>Not rated or unkown rating</li>
+                    <li><span>durée: </span>100</li>
+                    <li><span>Pays d'origine: </span>USA</li>
+                    <li><span>Box-office: </span>5</li>
+                    <li class="flags"><span>Genres: </span>
+                        <div class="flag">Comedy</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a href="#" id="closeModal6735740" class="btn-close"><i class="far fa-times-circle"></i></a>
+    </div>
+</body>
+
+</html>

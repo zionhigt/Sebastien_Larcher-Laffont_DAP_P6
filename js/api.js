@@ -1,23 +1,30 @@
-var get = async function(url, ) {
-    var request = await fetch(url);
+const host = "192.168.1.113";
+const port = "8000";
+const origin = `http://${host}:${port}/api/v1`
+
+const getURL = function(params) {
+    return origin + params;
+}
+const get = async function (url) {
+    const request = await fetch(url);
     return await request.json();
     
 }
-var getColection = async function(url, count) {
-    var colection = {
+const getColection = async function(url, count) {
+    const colection = {
         count: count,
         next: null,
         previous: null,
         results: new Array()
     }
     do {
-        var films = await get(url);
+        const films = await get(url);
         if (films.count == 0) {
             return films;
         } else {
             colection.results = colection.results.concat(films.results);
             if (films.next) {
-                url = films.next;
+                url = films.next
             }
         }
     }
@@ -25,25 +32,28 @@ var getColection = async function(url, count) {
     colection.count = colection.results.length;
     return colection;
 }
-var getCategories = async function(count=10) {
-    return await getColection("http://192.168.1.113:8000/api/v1/genres/", count);
+
+const getCategories = async function(count=10) {
+    const categories = await getColection(getURL("/genres/"), count);
+    return categories;
 }
 
-var getMoviesByCategory = async function(category, min=7) {
-    var objectCategory = {
+const getMoviesByCategory = async function(category, min=7) {
+    const films_colection = await getColection(getURL(`/titles/?genre=${category}&sort_by=-imdb_score`), min);
+    const objectCategory = {
         name: category,
-        moviesData: await getColection(`http://192.168.1.113:8000/api/v1/titles/?genre=${category}&sort_by=-imdb_score`, min)
+        moviesData: films_colection.results
     }
-    console.count("")
     return objectCategory;
 }
 
-var getBestRatingMovie = async function() {
-    films = await get(`http://192.168.1.113:8000/api/v1/titles/?sort_by=-imdb_score,-votes`);
-    return films.results[0];
+const getBestRatingMovie = async function() {
+    films = await get(getURL(`/titles/?sort_by=-imdb_score,-votes`));
+    return await get(films.results[0].url);
 }
 
-var getBestRatingCategory = async function () {
-    var films = await getColection(`http://192.168.1.113:8000/api/v1/titles/?sort_by=-imdb_score,-votes`, 7);
+const getBestRatingCategory = async function () {
+    const films = await getColection(getURL(`/titles/?sort_by=-imdb_score,-votes`), 7);
+    films.results = films.results;
     return films;
 }

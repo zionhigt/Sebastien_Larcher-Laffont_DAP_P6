@@ -1,7 +1,7 @@
-var stopLoader = function() {
-    var loader = document.querySelector(".loader");
-    var logo = loader.querySelector(".loader__logo");
-    var spinner = loader.querySelector(".loader__circle--spinner");
+const stopLoader = function() {
+    const loader = document.querySelector(".loader");
+    const logo = loader.querySelector(".loader__logo");
+    const spinner = loader.querySelector(".loader__circle--spinner");
     spinner.classList.add("hide");
     setTimeout(function(){
         loader.classList.remove("active");
@@ -12,45 +12,51 @@ var stopLoader = function() {
 
 }
 
-var main = async function() {
+const main = async function() {
 
-    var film = await getBestRatingMovie()
-    modalId = "bestRatingMovieModal";
-    var bestRatingImage = document.querySelector(".most_popular--image img");
-    var bestRatingTitle = document.querySelector(".most_popular--title");
-
+    const film = await getBestRatingMovie()
+    const modalId = `modalMovie${film.id}`;
+    const bestRatingImage = document.querySelector(".most_popular--image img");
     bestRatingImage.setAttribute('src', film.image_url);
+
+    const bestRatingTitle = document.querySelector(".most_popular--title");
     bestRatingTitle.innerHTML = film.title;
 
-    buildModal(film, modalId)
-    modalTrigger = document.getElementById("modalTrigger");
-    btnPopTrigger(modalTrigger);
+    const bestRatingDescription = document.querySelector(".most_popular--description");
+    bestRatingDescription.innerHTML = film.description;
 
-    var bestRatingCategory = await getBestRatingCategory()
-    buildCategories([{ name: "Tendances", moviesData: bestRatingCategory }]);
+    const modalTrigger = document.querySelector(".most_popular .modalTrigger");
+    modalTrigger.setAttribute('data-action', "#" + modalId);
+    modalTrigger.setAttribute('id', "modalTriggerBigFigure" + modalId);
+    btnPopTrigger(modalTrigger, film.id);
+
+    const bestRatingCategory = await getBestRatingCategory()
+    buildSection({ name: "Tendances", moviesData: bestRatingCategory.results.slice(1, bestRatingCategory.count) });
 
     
     return await getCategories()
     
 }
 
-var init_main = function() {
+const init_main = function() {
     main()
-    .then(function (data) {
-        console.log(data)
-        categoriesPromises = data.results.map(function (categories) {
-            return getMoviesByCategory(category=categories.name, min=7);
-        });
-        Promise.all(categoriesPromises)
-            .then(function (categories) {
-                categories = categories.filter(function (item) {
-                    return item.moviesData.count > 7;
-                });
-                stopLoader();
-                categories[0]
-                buildCategories(categories.slice(0, 5));
-                return categories;
-            })
+    .then(async function (data) {
+        const categories = []
+        for (category of data.results) {
+            let gotCategory = await getMoviesByCategory(category = category.name, min = 7);
+            console.log(gotCategory)
+            if(gotCategory.moviesData.length >= 7) {
+                categories.push(gotCategory)
+            } else {
+                continue;
+            }
+            if (categories.length == 3) {
+                break;
+            }
+        }
+        buildCategories(categories);
+        stopLoader();
+        return categories;
     })
     .catch(function (err) {
         console.log(err);

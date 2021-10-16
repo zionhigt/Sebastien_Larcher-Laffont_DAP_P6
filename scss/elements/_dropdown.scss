@@ -27,6 +27,16 @@
     padding: 5px 8px;
     z-index: 10;
     background-color: $dark-grey;
+    & .eye{
+        & i{
+            color: white;
+            display: none;
+            margin: 10px;
+        }
+        &:hover i{
+            display: inline;
+        }
+    }
 
     & ul {
         padding: 0;
