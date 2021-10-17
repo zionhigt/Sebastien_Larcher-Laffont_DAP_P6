@@ -69,8 +69,15 @@ header #navLogo img {
     justify-content: flex-end;
   }
 }
+@media all and (min-width: 1024px) {
+  header #navLogo {
+    max-width: 10%;
+    min-width: 70px;
+  }
+}
 section {
   padding: 15px 15px;
+  margin-bottom: 30px;
   position: relative;
   max-width: 100%;
   z-index: 2;
@@ -111,6 +118,10 @@ section {
 }
 .loader.active .loader__circle--spinner {
   transform: scale(1);
+}
+.loader .static-message {
+  color: #f9f9f9;
+  font-size: 22px;
 }
 .loader .loader__circle--spinner {
   transform: scale(0);
@@ -252,6 +263,9 @@ section {
   border-radius: 5px;
   left: 0;
 }
+.modal .body .caption span {
+  padding-left: 0;
+}
 .modal .body .caption h3 {
   margin: 0;
 }
@@ -292,10 +306,23 @@ section {
   border-radius: 8px;
 }
 
+@media all and (max-width: 349px) {
+  .modal .body .caption {
+    max-width: 45%;
+  }
+  .modal .body .caption h3 {
+    font-size: 16px;
+  }
+  .modal .body .caption p {
+    font-size: 12px;
+    padding: 0;
+  }
+}
 @media all and (min-width: 767px) {
   .modal .body {
     display: grid;
     grid-template-columns: 40% 50%;
+    grid-template-rows: 50% 50%;
     grid-template-areas: "img caption" "img infos";
     justify-content: space-evenly;
     justify-items: stretch;
@@ -315,16 +342,17 @@ section {
     grid-area: infos;
   }
 }
-@media all and (max-width: 349px) {
-  .modal .body .caption {
-    max-width: 45%;
+@media all and (min-width: 1024px) {
+  .modal {
+    flex-direction: column;
   }
-  .modal .body .caption h3 {
-    font-size: 16px;
+  .modal .body {
+    position: relative;
+    height: 70%;
+    align-items: center;
   }
-  .modal .body .caption p {
-    font-size: 12px;
-    padding: 0;
+  .modal .btn-close {
+    position: relative;
   }
 }
 .btn-close {
@@ -367,7 +395,7 @@ section {
   width: auto;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  padding: 5px 8px;
+  padding: 5px 15px;
   z-index: 10;
   background-color: #191919;
 }
@@ -486,8 +514,14 @@ section .film-loader.active i {
   }
 }
 @media all and (min-width: 1024px) {
+  .most_popular {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+  }
   .most_popular .most_popular--image {
-    height: 30vh;
+    height: 100%;
     width: auto;
   }
   .most_popular .most_popular--image img {
@@ -496,7 +530,8 @@ section .film-loader.active i {
   }
   .most_popular figcaption {
     position: relative;
-    max-width: 30%;
+    width: 80%;
+    max-width: 80%;
   }
 }
 .category {
@@ -504,18 +539,58 @@ section .film-loader.active i {
   height: auto;
 }
 .category .scrollable {
-  overflow-y: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   width: 100%;
   height: auto;
+}
+.category .scrollable::-webkit-scrollbar {
+  width: 0 !important;
 }
 .category .scrollable .container {
   display: flex;
   flex-flow: row nowrap;
-  width: 1000px;
+  width: 100%;
+  min-width: 150%;
   height: auto;
+}
+.category .scroll-arrow {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.category .scroll-arrow-right, .category .scroll-arrow-left {
+  opacity: 0;
+  position: relative;
+  min-width: 100px;
+  font-size: 32px;
+  transform: translateX(0);
+  transition: transform 0.2s ease-in;
+}
+.category .scroll-arrow-right a, .category .scroll-arrow-left a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 500;
+}
+.category .scroll-arrow-right.active, .category .scroll-arrow-left.active {
+  opacity: 1;
+}
+.category .scroll-arrow-right {
+  text-align: right;
+}
+.category .scroll-arrow-right:hover {
+  transform: translateX(20px);
+}
+.category .scroll-arrow-left:hover {
+  transform: translateX(-20px);
 }
 .category h2 {
   margin-top: 0;
+  margin-bottom: 15px;
   width: 100%;
 }
 .category figure {
@@ -523,8 +598,11 @@ section .film-loader.active i {
   text-align: center;
   width: 200px;
   height: 100%;
-  border: 2px solid #191919;
+  background-color: #111111;
+  padding-top: 5px;
+  border-radius: 5px;
   margin: 0;
+  margin-right: 10px;
 }
 .category figure img {
   width: auto;
@@ -570,6 +648,12 @@ section .film-loader.active i {
   font-size: 14px;
 }
 
+@media all and (min-width: 1024px) {
+  .category {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
 .search form {
   display: flex;
   flex-flow: column nowrap;
@@ -604,6 +688,12 @@ section .film-loader.active i {
 }
 .search form button:active {
   background-color: #83050b;
+}
+
+@media all and (min-width: 767px) {
+  .search form button {
+    width: 5%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

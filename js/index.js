@@ -38,13 +38,12 @@ const main = async function() {
     
 }
 
-const init_main = function() {
+const initMain = function() {
     main()
     .then(async function (data) {
         const categories = []
         for (category of data.results) {
             let gotCategory = await getMoviesByCategory(category = category.name, min = 7);
-            console.log(gotCategory)
             if(gotCategory.moviesData.length >= 7) {
                 categories.push(gotCategory)
             } else {
@@ -63,4 +62,4 @@ const init_main = function() {
     });
 }
 
-initDependencies(init_main);
+initDependencies(initMain);

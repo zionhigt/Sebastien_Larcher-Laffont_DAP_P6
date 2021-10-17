@@ -52,3 +52,12 @@ header {
     }
    }
 }
+
+@media #{$media-l} {
+   header {
+       & #navLogo {
+            max-width: 10%;
+            min-width: 70px;
+       }
+    }
+}

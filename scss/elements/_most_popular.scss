@@ -84,20 +84,23 @@ section .film-loader {
 
 @media #{$media-l} {
     .most_popular {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        align-items: center;
         #{&}--image {
-            height: 30vh;
+            height: 100%;
             width: auto;
             img {
                 width: 100%;
                 object-fit: contain;
             }
         }
-        
-    
 
-    & figcaption {
-        position: relative;
-        max-width: 30%;
-    }
+        & figcaption {
+            position: relative;
+            width: 80%;
+            max-width: 80%;
+        }
     }
 }

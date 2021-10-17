@@ -11,44 +11,44 @@ const buildModal = function (movieData, id) {
 
         const descriptionText = movieData.description;
         const descriptionElement = cloneModal.querySelector(".caption p");
-        descriptionElement.innerHTML = "<span>description: </span>" + descriptionText;
+        descriptionElement.innerHTML = "<span>Description: </span></br>" + descriptionText;
         
         const modalList = cloneModal.querySelector('ul');
         const directorsText = movieData.directors.join(", ");
         const directorsElement = document.createElement("li");
-        directorsElement.innerHTML = "<span>Directeurs: </span></t>" + directorsText;
+        directorsElement.innerHTML = "<span>Directeurs: </span>" + directorsText;
         modalList.appendChild(directorsElement);
 
         const actorsText = movieData.actors.join(", ");
         const actorsElement = document.createElement("li");
-        actorsElement.innerHTML = "<span>Acteurs: </span></t>" + actorsText;
+        actorsElement.innerHTML = "<span>Acteurs: </span>" + actorsText;
         modalList.appendChild(actorsElement);
 
         
         
         const imdbText = movieData.imdb_score;
         const imdbElement = document.createElement("li");
-        imdbElement.innerHTML = "<span>imdb: </span></t>" + imdbText;
+        imdbElement.innerHTML = "<span>imdb: </span>" + imdbText;
         modalList.appendChild(imdbElement);
         
         const ratedText = movieData.rated;
         const ratedElement = document.createElement("li");
-        ratedElement.innerHTML = "<span>Classement: </span></t>" + ratedText;
+        ratedElement.innerHTML = "<span>Classement: </span>" + ratedText;
         modalList.appendChild(ratedElement);
         
         const durationText = movieData.duration;
         const durationElement = document.createElement("li");
-        durationElement.innerHTML = "<span>durée: </span></t>" + durationText;
+        durationElement.innerHTML = "<span>durée: </span>" + durationText;
         modalList.appendChild(durationElement);
 
         const countryText = movieData.countries.join(", ");
         const countryElement = document.createElement("li");
-        countryElement.innerHTML = "<span>Pays d'origine: </span></t>" + countryText;
+        countryElement.innerHTML = "<span>Pays d'origine: </span>" + countryText;
         modalList.appendChild(countryElement);
 
         const genresElement = document.createElement("li");
         genresElement.classList.add("flags");
-        genresElement.innerHTML = "<span>Genres: </span></t>";
+        genresElement.innerHTML = "<span>Genres: </span>";
         movieData.genres.forEach(function (genre) {
             flagGenre = buildFlag(genre);
             genresElement.appendChild(flagGenre);
@@ -57,7 +57,7 @@ const buildModal = function (movieData, id) {
         
         const boxOfficeText = 5;//movieData.boxOffice;
         const boxOfficeElement = document.createElement("li");
-        boxOfficeElement.innerHTML = "<span>Box-office: </span></t>" + boxOfficeText;
+        boxOfficeElement.innerHTML = "<span>Box-office: </span>" + boxOfficeText;
         modalList.appendChild(boxOfficeElement);
         
         modalList.appendChild(genresElement);

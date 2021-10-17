@@ -8,6 +8,13 @@ const buildSection = function (category) {
     const sectionTitle = clone.querySelector("h2");
     sectionTitle.innerHTML = category.name
     const sectionContainer = clone.querySelector(".container");
+
+    const scrollRight = clone.querySelector('.scroll-arrow-right');
+    scrollRight.addEventListener("click", scrollRightCb);
+
+    const scrollLeft = clone.querySelector('.scroll-arrow-left');
+    scrollLeft.addEventListener("click", scrollLeftCb);
+
     const figureTemplate = clone.querySelector("#templateFigure");
     for (movieData of category.moviesData.splice(0, maxItems)) {
         const cloneFigure = document.importNode(figureTemplate.content, true);
@@ -31,4 +38,46 @@ const buildCategories = function (categories) {
         buildSection(category);
     });
 }
+const scrollRightCb = function(event) {
+    event.preventDefault();
+    const parent = event.target.parentNode.parentNode.parentNode;
+    const scrollableElement = parent.querySelector(".scrollable");
+    const containerScrollable = scrollableElement.querySelector(".container");
+    const otherArrow = parent.querySelector('.scroll-arrow-left');
+    let move = containerScrollable.children[0].clientWidth + scrollableElement.scrollLeft + 15;
+    let percentScroll = scrollableElement.scrollLeft / (containerScrollable.clientWidth - scrollableElement.clientWidth) * 100;
+    console.log(percentScroll)
+    if (percentScroll >= 0) {
+        otherArrow.classList.add('active');
+    }
+    if(percentScroll > 60){
+        event.target.parentNode.classList.remove("active");
+        move = containerScrollable.clientWidth;
+    }
+    scrollableElement.scroll({
+        left: move,
+        behavior: "smooth"
+    });
+}
 
+const scrollLeftCb = function (event) {
+    event.preventDefault();
+    const parent = event.target.parentNode.parentNode.parentNode;
+    const scrollableElement = parent.querySelector(".scrollable");
+    const containerScrollable = scrollableElement.querySelector(".container");
+    const otherArrow = parent.querySelector('.scroll-arrow-right');
+    let move = scrollableElement.scrollLeft - containerScrollable.children[0].clientWidth + 15;
+    let percentScroll = scrollableElement.scrollLeft / (containerScrollable.clientWidth - scrollableElement.clientWidth) * 100;
+    console.log(percentScroll)
+    if (percentScroll < 150) {
+        otherArrow.classList.add('active');
+    }
+    if (percentScroll < 35) {
+        event.target.parentNode.classList.remove("active");
+        move = 0;
+    }
+    scrollableElement.scroll({
+        left: move,
+        behavior: "smooth"
+    });
+}

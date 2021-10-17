@@ -35,3 +35,13 @@
         }
     }
 }
+
+@media #{$media-m}{
+    .search{
+        & form{
+            & button{
+                width: 5%;
+            }
+        }
+    }
+}

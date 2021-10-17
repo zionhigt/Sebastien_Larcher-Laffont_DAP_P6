@@ -50,7 +50,9 @@
             max-width: 50%;
             border-radius: 5px;
             left: 0;
-    
+            & span{
+                padding-left: 0;
+            }
             & h3 {
                 margin: 0;
             }
@@ -92,39 +94,7 @@
                         }
                     }
                 }
-    
-            }
-        }
-    }
-}
-
-@media #{$media-m} {
-    .modal {
-        & .body{
-            display: grid;
-            grid-template-columns: 40% 50%;
-            grid-template-areas:  
-                'img caption'
-                'img infos';
-            justify-content: space-evenly;
-            justify-items: stretch;
-            & img {
-                grid-row: 1 / 2;
-                // max-width: 40%;
-                width: auto;
-                height: 100%;
-                grid-area: img;
-            }
-            
-            & .caption{
-                grid-area: caption;
-                max-width: 100%;
-
-            }
-
-            & .infos{
-                grid-column: 2;
-                grid-area: infos;
+                
             }
         }
     }
@@ -145,6 +115,56 @@
                 }
 
             }
+        }
+    }
+}
+
+@media #{$media-m} {
+    .modal {
+        & .body{
+            display: grid;
+            grid-template-columns: 40% 50%;
+            grid-template-rows: 50% 50%;
+            grid-template-areas:  
+                'img caption'
+                'img infos';
+            justify-content: space-evenly;
+            justify-items: stretch;
+            & img {
+                grid-row: 1 / 2;
+                // max-width: 40%;
+                width: auto;
+                height: 100%;
+                grid-area: img;
+            }
+            
+            & .caption{
+                grid-area: caption;
+                max-width: 100%;
+
+                
+
+            }
+
+            & .infos{
+                grid-column: 2;
+                grid-area: infos;
+            }
+        }
+    }
+}
+
+
+@media #{$media-l} {
+    .modal {
+        flex-direction: column;
+        & .body{
+            position: relative;
+            height: 70%;
+            align-items: center;
+        }
+        & .btn-close{
+            position: relative;
         }
     }
 }
