@@ -8,8 +8,9 @@ const btnPopTrigger = function (trigger, id) {
     } else {
         loaderElement = parent.parentNode.parentNode.querySelector(".film-loader");
     }
-    trigger.addEventListener('click', async function (event) {
-        event.preventDefault()
+    trigger.addEventListener('click', async function(event) {
+        console.log(window.scrollY)
+        event.preventDefault();
         if (loaderElement != null) {
             loaderElement.classList.add('active');
             film = await getFilmData(id);

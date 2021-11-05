@@ -25,12 +25,11 @@ $figure-width: 200px;
         margin-bottom: 15px;
         
         &-right, &-left{
-            opacity: 0;
             position: relative;
             min-width: 100px;
             font-size: 32px;
-            transform: translateX(0);
-            transition: transform 0.2s ease-in;
+            transform: scale(1);
+            transition: transform 0.3s ease-in;
             & a{
                 position: absolute;
                 width: 100%;
@@ -39,27 +38,35 @@ $figure-width: 200px;
                 left: 0;
                 z-index: 500;
             }
-            
-            &.active{
-                opacity: 1;
-            }
         }
         &-right{
             text-align: right;
+            transform-origin: center right;
             &:hover{
-                transform: translateX(20px);
+                transform: scale(1.2);
             }
         }
         &-left{
+            transform-origin: center left;
             &:hover{
-                transform: translateX(-20px);
+                transform: scale(1.2);
             }
         }
     }
     & h2 {
         margin-top: 0;
-        margin-bottom: 15px;
-        width: 100%;
+        margin-bottom: 8px;
+        width: auto;
+        position: relative;
+        &:after{
+            content: "";
+            display: block;
+            width: 2em;
+            height: 5px;
+            margin-top: 3px;
+            background-color: $red;
+            border-radius: 5px;
+        }
     }
     & figure {
         position: relative;
@@ -111,6 +118,8 @@ $figure-width: 200px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 max-width: $figure-width;
+                margin: 8px auto;
+                text-align: center;
                 font-size: 14px;
                 
             }
@@ -120,7 +129,16 @@ $figure-width: 200px;
 
 @media #{$media-l}{
     .category{
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1045px;
+        & figure{
+            min-width: 250px;
+
+            & img{
+                min-width: 95%;
+                max-width: 100%;
+            }
+        }
     }
 }

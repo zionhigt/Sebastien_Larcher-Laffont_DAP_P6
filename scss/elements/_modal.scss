@@ -22,6 +22,9 @@
     & span {
         font-weight: bold;
         width: auto;
+        flex-grow: 2;
+        word-wrap: nowrap;
+
     }
     & .body {
         display: flex;
@@ -34,7 +37,7 @@
         border-radius: 4px;
         background-color: $darker-grey;
         box-shadow: 5px 5px 0.8em rgba(0, 0, 0, 0.9);
-
+        
         & *:not(img) {
             padding: 0 15px;
         }
@@ -62,7 +65,7 @@
             }
             
         }
-    
+        
         & .infos {
             min-width: 200px;
             & ul {
@@ -77,18 +80,19 @@
                     list-style-type: none;
                     display: flex;
                     justify-content: space-between;
+                    align-items: flex-start;
                     margin-bottom: 5px;
                     padding-left: 0;
+                    
                     &.flags {
+                        align-items: center;
+                        flex-wrap: wrap;
                         &:nth-child(1) {
                             margin-bottom: 3px;
                         }
-                        display: flex;
-                        flex-wrap: wrap;
                         & .flag {
                             border: 1px solid $light-grey;
-                            margin-right: 5px;
-                            margin-top: 5px;
+                            margin-left: 10px;
                             padding: 2px 5px;
                             border-radius:8px;
                         }

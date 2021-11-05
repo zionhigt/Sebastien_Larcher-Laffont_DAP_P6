@@ -30,10 +30,6 @@ const main = async function() {
     modalTrigger.setAttribute('id', "modalTriggerBigFigure" + modalId);
     btnPopTrigger(modalTrigger, film.id);
 
-    const bestRatingCategory = await getBestRatingCategory()
-    buildSection({ name: "Tendances", moviesData: bestRatingCategory.results.slice(1, bestRatingCategory.count) });
-
-    
     return await getCategories()
     
 }
@@ -43,7 +39,7 @@ const initMain = function() {
     .then(async function (data) {
         const categories = []
         for (category of data.results) {
-            let gotCategory = await getMoviesByCategory(category = category.name, min = 7);
+            let gotCategory = await getMoviesByCategory(category.name, 7);
             if(gotCategory.moviesData.length >= 7) {
                 categories.push(gotCategory)
             } else {
@@ -53,6 +49,11 @@ const initMain = function() {
                 break;
             }
         }
+        const bestRatingCategory = await getBestRatingCategory()
+        categories.unshift({
+            name: "Tendances",
+            moviesData: bestRatingCategory.results.slice(1, bestRatingCategory.count)
+        });
         buildCategories(categories);
         stopLoader();
         return categories;
