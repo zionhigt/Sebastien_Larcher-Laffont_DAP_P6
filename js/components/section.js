@@ -4,7 +4,7 @@ import btnPopTrigger from './btn_pop.js';
 
 const maxItems = 7;
 
-const buildSection = function (category) {
+export const buildSection = function (category) {
     addCategoryLink(category.name);
     console.log(category)
     const sectionTemplate = document.querySelector("#categorySection");
@@ -37,7 +37,6 @@ const buildSection = function (category) {
     section.removeChild(figureTemplate)
     document.body.appendChild(section);
 }
-
 const buildCategories = async function () {
     const categories = await API.getCategories();
     console.log(categories)
