@@ -81,10 +81,11 @@ $figure-width: 200px;
         margin-right: 10px;
         
         & img {
-            width: auto;
+            width: 100%;
+            min-width: 200px;
             margin: auto;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 5px;
         }
         & figcaption {
@@ -127,18 +128,18 @@ $figure-width: 200px;
     }
 }
 
-@media #{$media-l}{
-    .category{
-        margin-left: auto;
-        margin-right: auto;
-        width: 1045px;
-        & figure{
-            min-width: 250px;
+// @media #{$media-l}{
+//     .category{
+//         margin-left: auto;
+//         margin-right: auto;
+//         width: 1045px;
+//         & figure{
+//             min-width: 250px;
 
-            & img{
-                min-width: 95%;
-                max-width: 100%;
-            }
-        }
-    }
-}
+//             & img{
+//                 min-width: 95%;
+//                 max-width: 100%;
+//             }
+//         }
+//     }
+// }

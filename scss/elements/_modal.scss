@@ -58,6 +58,9 @@
             }
             & h3 {
                 margin: 0;
+                & span {
+                    opacity: 0.6;
+                }
             }
             
             & p{
@@ -68,6 +71,7 @@
         
         & .infos {
             min-width: 200px;
+            margin-top: 2rem;
             & ul {
                 flex-flow: column wrap;
                 justify-content: space-between;

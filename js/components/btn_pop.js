@@ -2,6 +2,7 @@ import buildModal from './modal.js';
 import API from '../api/api.js';
 
 export default function (trigger, id) {
+    console.log(id)
     const modalId = `modalMovie${id}`;
     let modalBox = document.querySelector(modalId);
     let loaderElement = null;
@@ -15,7 +16,7 @@ export default function (trigger, id) {
         event.preventDefault();
         if (loaderElement != null) {
             loaderElement.classList.add('active');
-            const film = await API.getTopTrending();
+            const film = await API.getMovie(id);
             modalBox = buildModal(film, modalId);
             modalBox.classList.add('up');
             document.body.classList.add("modal-up");

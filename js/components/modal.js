@@ -3,6 +3,7 @@ import buildFlag from './flag.js'
 import API from "../api/api.js"
 
 export default function (movieData, id) {
+    console.log(movieData)
     let modalBox = null;
     if(document.querySelector(`#${id}`) == null){
         const modalTemplate = document.getElementById('modalTemplate');
@@ -11,17 +12,19 @@ export default function (movieData, id) {
         modalBox.setAttribute('id', id);
         
         const modalTitle = cloneModal.querySelector('h3');
-        modalTitle.innerHTML = movieData.title;
+        modalTitle.innerHTML = movieData.title + "<br>" + "<span>" + movieData.tagline  + "</span>";
 
         const descriptionText = movieData.overview;
         const descriptionElement = cloneModal.querySelector(".caption p");
         descriptionElement.innerHTML = "<span>Description  </span></br>" + descriptionText;
         
         const modalList = cloneModal.querySelector('ul');
-        // const directorsText = movieData.directors.join(", ");
-        // const directorsElement = document.createElement("li");
-        // directorsElement.innerHTML = "<span>Réalisateurs  </span>" + directorsText;
-        // modalList.appendChild(directorsElement);
+        const directorsText = movieData.production_companies.map(function(item) {
+            return item.name + '(' + item.origin_country + ')';
+        }).join(", ");
+        const directorsElement = document.createElement("li");
+        directorsElement.innerHTML = "<span>Réalisateurs  </span>" + directorsText;
+        modalList.appendChild(directorsElement);
 
         // const actorsText = movieData.actors.join(", ");
         // const actorsElement = document.createElement("li");
@@ -45,7 +48,7 @@ export default function (movieData, id) {
         ratedElement.innerHTML = "<span>Classement  </span>" + ratedText;
         modalList.appendChild(ratedElement);
         
-        const durationText = 90; //movieData.duration;
+        const durationText = movieData.runtime;
         const durationElement = document.createElement("li");
         durationElement.innerHTML = "<span>Durée  </span>" + durationText + " mins";
         modalList.appendChild(durationElement);
@@ -58,8 +61,8 @@ export default function (movieData, id) {
         const genresElement = document.createElement("li");
         genresElement.classList.add("flags");
         genresElement.innerHTML = "<span>Genres  </span>";
-        movieData.genre_ids.forEach(function (genre) {
-            const flagGenre = buildFlag(genre);
+        movieData.genres.forEach(function (genre) {
+            const flagGenre = buildFlag(genre.name);
             genresElement.appendChild(flagGenre);
             
         })

@@ -1,4 +1,6 @@
 import topTrending from "./components/top_trending.js"
+import builCategories from './components/section.js'
+import buildCategories from "./components/section.js";
 
 const stopLoader = function() {
     const loader = document.querySelector(".loader");
@@ -16,6 +18,13 @@ const stopLoader = function() {
 topTrending()
 .then(function() {
     console.log("OK");
+    buildCategories()
+    .then(function() {
+        console.log("ok")
+    })
+    .catch(function(err) {
+        throw err;
+    });
     stopLoader();
 })
 .catch(function(err) {

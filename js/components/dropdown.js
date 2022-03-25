@@ -26,3 +26,4 @@ const addCategoryLink = function(name) {
     listElementLink.setAttribute('href', `#section${name}`);
     categoriesList.appendChild(listElement);
 }
+export default addCategoryLink

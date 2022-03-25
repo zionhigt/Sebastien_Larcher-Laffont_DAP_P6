@@ -271,11 +271,15 @@ section {
 .modal .body .caption h3 {
   margin: 0;
 }
+.modal .body .caption h3 span {
+  opacity: 0.6;
+}
 .modal .body .caption p {
   font-size: 14px;
 }
 .modal .body .infos {
   min-width: 200px;
+  margin-top: 2rem;
 }
 .modal .body .infos ul {
   flex-flow: column wrap;
@@ -563,7 +567,7 @@ section .film-loader.active i {
   top: 0;
   left: 0;
   z-index: 1;
-  background: linear-gradient(0deg, black, transparent);
+  background: linear-gradient(0deg, #191919, transparent);
 }
 .most_popular figcaption a {
   padding: 8px 8px;
@@ -701,10 +705,11 @@ section .film-loader.active i {
   margin-right: 10px;
 }
 .category figure img {
-  width: auto;
+  width: 100%;
+  min-width: 200px;
   margin: auto;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 5px;
 }
 .category figure figcaption {
@@ -746,20 +751,6 @@ section .film-loader.active i {
   font-size: 14px;
 }
 
-@media all and (min-width: 1024px) {
-  .category {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1045px;
-  }
-  .category figure {
-    min-width: 250px;
-  }
-  .category figure img {
-    min-width: 95%;
-    max-width: 100%;
-  }
-}
 .search form {
   display: flex;
   flex-flow: column nowrap;

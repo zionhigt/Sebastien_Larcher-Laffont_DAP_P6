@@ -1,4 +1,14 @@
 class API {
+
+    host = "seb-dev.tech";
+    // port="3001";
+    
+    get = async function (path) {
+        const origin = `http://${this.host}/TMDB/${path}`
+        const request = await fetch(origin);
+        return await request.json();
+        
+    } 
     getTopTrending() {
         const film = {
             "genre_ids": [
@@ -24,7 +34,13 @@ class API {
         
         return Promise.resolve(film);
     }
-
+    async getCategories(many=3) {
+         return await this.get("categories");
+     }
+    async getMovie(id) {
+         return await this.get("movie/" + id);
+     }
+    
     getImgUrl(path) {
         return "https://image.tmdb.org/t/p/original" + path;
     }
