@@ -308,16 +308,79 @@ section {
   border-radius: 8px;
 }
 
-@media all and (max-width: 349px) {
+@media all and (max-width: 605px) {
+  .modal {
+    justify-content: space-between;
+  }
+  .modal .body {
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 100%;
+  }
+  .modal .body *:not(img) {
+    padding: 0 15px;
+  }
+  .modal .body img {
+    width: 100%;
+    max-width: 70vw;
+    object-fit: contain;
+  }
   .modal .body .caption {
-    max-width: 45%;
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 20%;
+    overflow-y: scroll;
+    border-radius: 5px;
+    left: 0;
+  }
+  .modal .body .caption span {
+    padding-left: 0;
   }
   .modal .body .caption h3 {
-    font-size: 16px;
+    margin: 0;
   }
   .modal .body .caption p {
-    font-size: 12px;
+    font-size: 14px;
+    max-height: 20vh;
+  }
+  .modal .body .infos {
+    align-self: flex-start;
+  }
+  .modal .body .infos {
+    min-width: 200px;
+  }
+  .modal .body .infos ul {
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    display: flex;
+    width: 100%;
     padding: 0;
+  }
+  .modal .body .infos ul li {
+    font-size: 12px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    padding-left: 0;
+  }
+  .modal .body .infos ul li.flags {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .modal .body .infos ul li.flags:nth-child(1) {
+    margin-bottom: 3px;
+  }
+  .modal .body .infos ul li.flags .flag {
+    border: 1px solid #f9f9f9;
+    margin-left: 10px;
+    padding: 2px 5px;
+    border-radius: 8px;
   }
 }
 @media all and (min-width: 767px) {
@@ -338,6 +401,10 @@ section {
   .modal .body .caption {
     grid-area: caption;
     max-width: 100%;
+  }
+  .modal .body .caption p {
+    overflow-y: scroll;
+    max-height: 80%;
   }
   .modal .body .infos {
     grid-column: 2;
@@ -469,7 +536,6 @@ section .film-loader.active i {
   object-fit: cover;
 }
 .most_popular figcaption {
-  position: absolute;
   width: auto;
   bottom: 3px;
   padding: 16px;
@@ -482,6 +548,22 @@ section .film-loader.active i {
 }
 .most_popular figcaption p {
   width: auto;
+}
+.most_popular figcaption p.most_popular--description {
+  position: relative;
+  display: block;
+  max-height: 250px;
+  overflow: hidden;
+}
+.most_popular figcaption p.most_popular--description:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, black, transparent);
 }
 .most_popular figcaption a {
   padding: 8px 8px;
