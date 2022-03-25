@@ -18,7 +18,6 @@ export default function (trigger, id) {
             const film = await API.getMovie(id);
             modalBox = buildModal(film, modalId);
             modalBox.classList.add('up');
-            document.body.classList.add("modal-up");
             loaderElement.classList.remove('active');
         }
 

@@ -1,5 +1,4 @@
 import topTrending from "./components/top_trending.js"
-import builCategories from './components/section.js'
 import buildCategories from "./components/section.js";
 
 const stopLoader = function() {
