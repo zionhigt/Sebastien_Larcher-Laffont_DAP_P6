@@ -1,7 +1,7 @@
 class API {
 
-    host = "localhost";
-    port = "3001";
+    host = "seb-dev.tech";
+    port = null; //"3001";
     
     async get(path) {
         const origin = `http://${this.host}${this.port?":" + this.port:""}/TMDB/${path}`
