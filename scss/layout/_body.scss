@@ -12,8 +12,24 @@ body {
     padding: 0;
     padding-top:0;
     height: 100vh;
-    background-color: $dark-grey;
+    background-color: $grey;
     font-family: "Roboto", "Gotic century", sans-serif;
     // overflow-y: scroll;
     position: relative;
+
+    & .deco {
+        position: relative;
+        // background-clip: text;
+        // -webkit-background-clip: text;
+        // color: transparent;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: $darker-grey;  
+        color: white;
+        font-size: 64px;
+        display: block;
+        width: 400px;
+        height: 550px;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Popcorn.svg/639px-Popcorn.svg.png');
+    }
 }

@@ -1,3 +1,13 @@
+@keyframes smoothPlane {
+    0% {
+        transform: translate(0.1rem, 0.05rem)
+    }
+    
+    100% {
+        transform: translate(1rem, 2rem)
+    }
+    
+}
 section .film-loader {
     position: absolute;
     width: 100%;
@@ -27,26 +37,30 @@ section .film-loader {
     overflow-x: hidden;
     #{&}--image {
         img {
+            display: block;
+            animation: smoothPlane 12s linear 0s infinite alternate;
             width: 100%;
             border-radius: 10px;
             object-fit: cover;
+
         }
     }
 
     & figcaption {
         width: auto;
         bottom: 3px;
-        padding: 16px;
-        background-color: rgba($dark-grey, 0.6);
+        padding: 16px 0;
+        background-color: transparent;
         color: $light-grey;
-
         & h2 {
             width: 70%;
             margin: 10px 0;
+            padding-left: 16px;
         }
         & p {
             width: auto;
             &.most_popular--description {
+                padding: 16px;
                 position: relative;
                 display: block;
                 max-height: 250px;
@@ -56,6 +70,7 @@ section .film-loader {
                     content: "";
                     width: 100%;
                     height: 100%;
+                    border-radius: 10px;
                     top: 0;
                     left: 0;
                     z-index: 1;

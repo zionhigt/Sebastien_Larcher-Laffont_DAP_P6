@@ -2,7 +2,7 @@ import API from "../api/api.js";
 import addCategoryLink from './dropdown.js';
 import btnPopTrigger from './btn_pop.js';
 
-const maxItems = 7;
+const maxItems = 15;
 
 export const buildSection = function (category) {
     addCategoryLink(category.name);
@@ -21,7 +21,8 @@ export const buildSection = function (category) {
     scrollLeft.addEventListener("click", scrollLeftCb);
 
     const figureTemplate = clone.querySelector("#templateFigure");
-    for (let movieData of category.moviesData.splice(0, maxItems)) {
+    const moviesData = category.moviesData.splice(0, maxItems);
+    for (let movieData of moviesData) {
         const cloneFigure = document.importNode(figureTemplate.content, true);
         const figure = cloneFigure.querySelector('figure');
         const figureTitle = figure.querySelector('h3')
@@ -45,38 +46,32 @@ const buildCategories = async function () {
     });
 }
 export default buildCategories;
-const scrollRightCb = function(event) {
+
+const step = 20;
+
+const scrollCb = function(event, direction=1) {
     event.preventDefault();
     const parent = event.target.parentNode.parentNode.parentNode;
     const scrollableElement = parent.querySelector(".scrollable");
     const containerScrollable = scrollableElement.querySelector(".container");
-    const otherArrow = parent.querySelector('.scroll-arrow-left');
-    let move = containerScrollable.children[0].clientWidth + scrollableElement.scrollLeft + 20;
-    let percentScroll = scrollableElement.scrollLeft / containerScrollable.children[0].clientWidth;
+    let move = containerScrollable.children[0].clientWidth + scrollableElement.scrollLeft;
     scrollableElement.scroll({
-        left: move,
+        left: move * direction + step,
         behavior: "smooth"
     });
+};
+/**
+ * @Decorator {scrollCb}
+ * @param {onclick} event 
+ */
+const scrollRightCb = function(event) {
+    return scrollCb(event);
 }
 
+/**
+ * @Decorator {scrollCb}
+ * @param {onclick} event 
+ */
 const scrollLeftCb = function (event) {
-    event.preventDefault();
-    const parent = event.target.parentNode.parentNode.parentNode;
-    const scrollableElement = parent.querySelector(".scrollable");
-    const containerScrollable = scrollableElement.querySelector(".container");
-    const otherArrow = parent.querySelector('.scroll-arrow-right');
-    let move = scrollableElement.scrollLeft - containerScrollable.children[0].clientWidth + 20;
-    let percentScroll = scrollableElement.scrollLeft / (containerScrollable.clientWidth - scrollableElement.clientWidth) * 100;
-    console.log(percentScroll)
-    if (percentScroll < 300) {
-        otherArrow.classList.add('active');
-    }
-    if (percentScroll < 60) {
-        event.target.parentNode.classList.remove("active");
-        move = 0;
-    }
-    scrollableElement.scroll({
-        left: move,
-        behavior: "smooth"
-    });
+    scrollCb(event, -1);
 }

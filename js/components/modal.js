@@ -14,6 +14,10 @@ export default function (movieData, id) {
         const modalTitle = cloneModal.querySelector('h3');
         modalTitle.innerHTML = movieData.title + "<br>" + "<span>" + movieData.tagline  + "</span>";
 
+        const posterLink = cloneModal.querySelector('a.posterLink');
+        posterLink.innerText = "Affiche du film";
+        posterLink.setAttribute("href", API.getImgUrl(movieData.poster_path))
+
         const descriptionText = movieData.overview;
         const descriptionElement = cloneModal.querySelector(".caption p");
         descriptionElement.innerHTML = "<span>Description  </span></br>" + descriptionText;
